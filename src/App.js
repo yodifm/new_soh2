@@ -1,31 +1,26 @@
 import 'react-native-gesture-handler';
-import {Text, View, SafeAreaView, StatusBar} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
 import {
-  SplashScreen,
-  Login,
-  FirstPage,
-  ListCustomer,
-  MenuCustomer,
-  Reason,
-  ProductEdit,
-  ProductInput,
-  ListProductEdit,
-  ListProductInput,
-  ListUpdateCustomer,
-  ListUpdateProduct,
-  UpdateProduct,
-  ListDocumentation,
-  InputDocumentation,
-} from './pages';
-import {NavigationContainer} from '@react-navigation/native';
+  SafeAreaView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  useColorScheme,
+} from 'react-native';
+
+import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {SplashScreen, SignIn} from './pages';
 import Router from './router';
+import {Provider} from 'react-redux';
+import store from './redux/store';
 
 const App = () => {
   return (
     <NavigationContainer>
-      <ListDocumentation />
-      {/* <Router/> */}
+      <Provider store={store}>
+        <Router />
+      </Provider>
     </NavigationContainer>
   );
 };
